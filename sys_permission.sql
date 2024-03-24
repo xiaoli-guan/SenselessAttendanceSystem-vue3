@@ -11,7 +11,7 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 24/03/2024 12:44:27
+ Date: 25/03/2024 00:00:54
 */
 
 SET NAMES utf8mb4;
@@ -395,6 +395,8 @@ INSERT INTO `sys_permission` VALUES ('1770806035041304577', '1770804763668070402
 INSERT INTO `sys_permission` VALUES ('1770806296149311489', '1770804763668070402', '部门管理', '/personnel_management/department/PersonnelDepartmentList', 'personnel_management/department/PersonnelDepartmentList', 1, '', NULL, 1, NULL, '0', 2.00, 0, 'ant-design:fund-outlined', 1, 0, 0, 0, NULL, 'admin', '2024-03-21 21:34:56', 'admin', '2024-03-21 21:39:01', 0, 0, NULL, 0);
 INSERT INTO `sys_permission` VALUES ('1770807653652578305', '', '设备管理', '/device', 'device', 1, '', NULL, 0, NULL, '0', 1.00, 0, 'ant-design:tool-twotone', 0, 0, 0, 0, NULL, 'admin', '2024-03-21 21:40:19', 'admin', '2024-03-21 21:41:23', 0, 0, NULL, 0);
 INSERT INTO `sys_permission` VALUES ('1770808182717890561', '1770807653652578305', '设备列表', '/device/shebeiList', 'device/shebeiList', 1, '', NULL, 1, NULL, '0', 1.00, 0, 'ant-design:align-left-outlined', 1, 0, 0, 0, NULL, 'admin', '2024-03-21 21:42:25', 'admin', '2024-03-21 23:58:39', 0, 0, NULL, 0);
+INSERT INTO `sys_permission` VALUES ('1771927877617455105', NULL, '抓拍记录', '/snapshot_records', 'snapshot_records', 1, '', NULL, 0, NULL, '0', 1.00, 0, 'ant-design:file-done-outlined', 0, 0, 0, 0, NULL, 'admin', '2024-03-24 23:51:42', NULL, NULL, 0, 0, NULL, 0);
+INSERT INTO `sys_permission` VALUES ('1771928138964537345', '1771927877617455105', '抓拍记录', '/snapshot_records/RecordsList', 'snapshot_records/RecordsList', 1, '', NULL, 1, NULL, '0', 1.00, 0, 'ant-design:file-add-twotone', 1, 0, 0, 0, NULL, 'admin', '2024-03-24 23:52:44', NULL, NULL, 0, 0, NULL, 0);
 INSERT INTO `sys_permission` VALUES ('190c2b43bec6a5f7a4194a85db67d96a', 'd7d6e2e4e2934f2c9385a623fd98c6f3', '角色管理', '/system/role', 'system/role/index', 1, NULL, NULL, 1, NULL, NULL, 2.00, 0, 'ant-design:solution', 0, 1, 0, NULL, NULL, NULL, '2018-12-25 20:34:38', 'admin', '2021-09-17 15:58:00', 0, 0, NULL, 0);
 INSERT INTO `sys_permission` VALUES ('1a0811914300741f4e11838ff37a1d3a', '3f915b2769fc80648e92d04e84ca059d', '手机号禁用', '', '', 0, NULL, NULL, 2, 'user:form:phone', '2', 1.00, 0, NULL, 1, NULL, 0, NULL, NULL, 'admin', '2019-05-11 17:19:30', 'admin', '2019-05-11 18:00:22', 0, 0, '1', NULL);
 INSERT INTO `sys_permission` VALUES ('1d592115213910765570', '3f915b2769fc80648e92d04e84ca059d', '通过ID查询用户拥有的角色', NULL, NULL, 0, NULL, NULL, 2, 'system:user:queryUserRole', '1', NULL, 0, NULL, 1, 0, 0, 0, NULL, 'admin', '2022-11-14 19:20:22', NULL, NULL, 0, 0, '1', 0);
