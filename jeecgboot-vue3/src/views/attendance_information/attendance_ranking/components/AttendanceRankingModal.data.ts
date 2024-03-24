@@ -1,9 +1,9 @@
 /*
  * @Author: Li Quanlin
  * @Date: 2024-03-23 20:53:36
- * @LastEditTime: 2024-03-23 21:37:41
+ * @LastEditTime: 2024-03-24 14:40:59
  * @LastEditors: Li Quanlin
- * @Description: AttendanceRankingModal的常量数据
+ * @Description: 考勤排名Modal的常量数据
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\attendance_ranking\components\AttendanceRankingModal.data.ts
  */
 

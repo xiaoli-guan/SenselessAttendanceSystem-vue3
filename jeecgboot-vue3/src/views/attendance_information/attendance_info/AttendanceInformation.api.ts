@@ -1,3 +1,12 @@
+/*
+ * @Author: Li Quanlin
+ * @Date: 2024-03-01 20:38:52
+ * @LastEditTime: 2024-03-24 14:30:49
+ * @LastEditors: Li Quanlin
+ * @Description: 考勤信息的api，由jeecgboot生成
+ * @FilePath: \jeecgboot-vue3\src\views\attendance_information\attendance_info\AttendanceInformation.api.ts
+ */
+
 import {defHttp} from '/@/utils/http/axios';
 import { useMessage } from "/@/hooks/web/useMessage";
 

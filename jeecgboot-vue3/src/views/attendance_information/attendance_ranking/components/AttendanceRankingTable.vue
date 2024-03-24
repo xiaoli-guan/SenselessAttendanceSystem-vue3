@@ -1,7 +1,7 @@
 <!--
  * @Author: Li Quanlin
  * @Date: 2024-03-03 16:04:34
- * @LastEditTime: 2024-03-23 21:22:26
+ * @LastEditTime: 2024-03-24 15:46:28
  * @LastEditors: Li Quanlin
  * @Description: 考勤排名-二次封装BasicTable和Bar
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\attendance_ranking\components\AttendanceRankingTable.vue
@@ -51,6 +51,7 @@
     import { useModal } from '/@/components/Modal';
     import Modal from './AttendanceRankingModal.vue';
     import {earlyColumns,lateColumns,overtimeColumns,edeptColumns,absenceColumns,searchFormSchema} from '../AttendanceRanking.data'
+    
     const props = defineProps({
         title:{type:String,defualt:''},
         api: {type:Promise<any>},
@@ -75,33 +76,33 @@
         pageSize:5
     }
     //获取countChartData
-    // params.name = getColumns()[1].key
-    params.column = "createTime"
+    params.column = getColumns()[1].key     //设置排序字段
+    console.log(props.title,params.column);
     props.api(params).then((res)=>{
         for(let i = 0;i<res.total;i++){
             countChartData.push(
                 {
                     "name":res.records[i].name,
-                    // "value":res.records[i][params.name],
-                    "value":res.records[i].age
+                    "value":res.records[i][params.column],
                 }
             )
         }
     })
 
     //获取timeChartData
-    params.column = "createTime"
-    props.api(params).then((res)=>{
-        for(let i = 0;i<res.total;i++){
-            timeChartData.push(
-                {
-                    "name":res.records[i].name,
-                    // "value":res.records[i][params.name],
-                    "value":res.records[i].age
-                }
-            )
-        }
-    })
+    if(props.title != "缺勤"){
+        params.column = getColumns()[2].key     //设置排序字段
+        props.api(params).then((res)=>{
+            for(let i = 0;i<res.total;i++){
+                timeChartData.push(
+                    {
+                        "name":res.records[i].name,
+                        "value":res.records[i][params.column],
+                    }
+                )
+            }
+        })
+    }
     
     /* ----------------------------------- end ---------------------------------- */
 
@@ -109,7 +110,6 @@
         tableProps: {
             title: props.title+'排名',
             api:props.api,
-            // dataSource: props.isAbsenteeism?dataSourceAbsenteeism:dataSource,
             columns: getColumns(),
             size:'middle',
             actionColumn: {
@@ -143,9 +143,14 @@
         ];
     }
        
+    /**
+     * @description: 打开modal
+     * @param {*} record 行数据
+     * @return {*}
+     */
     function handleDetails(record) {
-        
-        openModal(true);
+        let obj = JSON.parse(JSON.stringify(record)); 
+        openModal(true,obj.employee_id);
     }
 </script>
 

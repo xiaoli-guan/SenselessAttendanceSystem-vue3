@@ -1,3 +1,12 @@
+<!--
+ * @Author: Li Quanlin
+ * @Date: 2024-03-01 20:38:52
+ * @LastEditTime: 2024-03-24 14:29:38
+ * @LastEditors: Li Quanlin
+ * @Description: 考勤信息的Modal，由jeecgboot生成
+ * @FilePath: \jeecgboot-vue3\src\views\attendance_information\attendance_info\components\AttendanceInformationModal.vue
+-->
+
 <template>
   <BasicModal v-bind="$attrs" @register="registerModal" destroyOnClose :title="title" :width="800" @ok="handleSubmit">
       <BasicForm @register="registerForm"/>
@@ -38,7 +47,7 @@
     //设置标题
     const title = computed(() => (!unref(isUpdate) ? '新增' : '编辑'));
     //表单提交事件
-    async function handleSubmit(v) {
+    async function handleSubmit() {
         try {
             let values = await validate();
             setModalProps({confirmLoading: true});

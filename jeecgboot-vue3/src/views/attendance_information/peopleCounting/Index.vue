@@ -1,3 +1,12 @@
+<!--
+ * @Author: Li Quanlin
+ * @Date: 2024-03-03 23:01:30
+ * @LastEditTime: 2024-03-24 16:07:48
+ * @LastEditors: Li Quanlin
+ * @Description: 人流统计
+ * @FilePath: \jeecgboot-vue3\src\views\attendance_information\peopleCounting\Index.vue
+-->
+
 <template>
     <div style="margin-left: 20px; margin-right: 20px;">
         <div>
@@ -83,7 +92,9 @@
     import { useListPage } from '/@/hooks/system/useListPage';
     import {columnsArrivalMonth,columnsArrivalDay,columnsLateDay,columnsOvertimeYst} from './peopleCounting.data'
 
-    // BasicTable绑定注册
+    /* -------------------------------------------------------------------------- */
+    /*                               BasicTable绑定注册                            */
+    /* -------------------------------------------------------------------------- */
     const [registerTableArrivalMonth] = useListPage({
         designScope: 'peopleCountingModal-table',
         tableProps: {
@@ -110,7 +121,6 @@
             showActionColumn:false,
         },
     }).tableContext;
-
     const  [registerTableLateDay]  = useListPage({
         designScope: 'peopleCountingModal-table',
         tableProps: {
@@ -137,13 +147,17 @@
             showActionColumn:false,
         },
     }).tableContext;
-    
+    /* ----------------------------------- end ---------------------------------- */
     
 
     const dialogVisibleArrivalMonth = ref(false)
     const dialogVisibleArrivalDay = ref(false)
     const dialogVisibleLateDay = ref(false)
     const dialogVisibleOvertimeYst = ref(false)
+
+    /* -------------------------------------------------------------------------- */
+    /*               获取本月出勤率、今日出勤率、今日迟到率、昨日加班率数据            */
+    /* -------------------------------------------------------------------------- */
     const chartData = {
         'attendanceMonth':{
             name:'本月出勤率',
@@ -162,13 +176,21 @@
             value:34
         }
     }
-    // rateList().then((res)=>{
-    //     chartData.attendanceMonth.value = res.result.arrival_rate_month;
-    //     chartData.attendanceDay.value = res.result.arrival_rate_day;
-    //     chartData.lateDay.value = res.result.late_arrival_rate_day;
-    //     chartData.overtimeYsd.value = res.result.overtime_rate_ystday;
-    // })
+    // 发送请求并处理参数
+    rateList().then((res)=>{
+        chartData.attendanceMonth.value = res.result.arrival_rate_month;
+        chartData.attendanceDay.value = res.result.arrival_rate_day;
+        chartData.lateDay.value = res.result.late_arrival_rate_day;
+        chartData.overtimeYsd.value = res.result.overtime_rate_ystday;
+    })
+    /* ----------------------------------- end ---------------------------------- */
 
+
+
+
+    /* -------------------------------------------------------------------------- */
+    /*                             时间选择器与人流统计图                           */
+    /* -------------------------------------------------------------------------- */
     const value = ref('')
     value.value = (new Date()).toString();
     const shortcuts = [
@@ -193,8 +215,10 @@
             },
         },
     ]
+    // 处理时间变化
     handleDatePickerChange(value);
     let chartDataCountingArray = reactive([] as Array<Object>);
+
     for(let i = 0;i<24;i++){
         chartDataCountingArray.push({name:i+'点',value:Math.floor(Math.random() * (200 - 0 + 1) + 0)});
     }
@@ -203,12 +227,20 @@
         return time.getTime() > Date.now()
     }
 
+    // 更新人流统计图的数据
     function handleDatePickerChange(value){
-        console.log(value);
-        // trafficList(value.value).then((res) =>{
-        //     chartDataCountingArray = res.result;
-        // })
+        trafficList(value.value).then((res) =>{
+            chartDataCountingArray = res.result;
+        })
     }
+
+    /* ----------------------------------- end ---------------------------------- */
+
+    /**
+     * @description: 根据flag打开不同的dialog
+     * @param {*} flag
+     * @return {*}
+     */    
     function handleLinkClick(flag:String){
         switch(flag){
             case "ArrivalMonth":dialogVisibleArrivalMonth.value = true;break;

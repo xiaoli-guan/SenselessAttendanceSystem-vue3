@@ -1,3 +1,12 @@
+<!--
+ * @Author: Li Quanlin
+ * @Date: 2024-03-01 20:38:52
+ * @LastEditTime: 2024-03-24 14:26:23
+ * @LastEditors: Li Quanlin
+ * @Description: 考勤信息的form表单，由jeecgboot生成
+ * @FilePath: \jeecgboot-vue3\src\views\attendance_information\attendance_info\components\AttendanceInformationForm.vue
+-->
+
 <template>
     <div style="min-height: 400px">
         <BasicForm @register="registerForm"></BasicForm>

@@ -1,3 +1,12 @@
+<!--
+ * @Author: Li Quanlin
+ * @Date: 2024-03-01 20:38:52
+ * @LastEditTime: 2024-03-24 14:36:31
+ * @LastEditors: Li Quanlin
+ * @Description: 考勤信息，由jeecgboot生成
+ * @FilePath: \jeecgboot-vue3\src\views\attendance_information\attendance_info\AttendanceInformationList.vue
+-->
+
 <template>
   <div>
     <!--引用表格-->
@@ -28,8 +37,8 @@
         <TableAction :actions="getTableAction(record)" :dropDownActions="getDropDownAction(record)"/>
       </template>
       <!--字段回显插槽-->
-      <template v-slot:bodyCell="{ column, record, index, text }">
-      </template>
+      <!-- <template v-slot:bodyCell="{ column, record, index, text }">
+      </template> -->
     </BasicTable>
     <!-- 表单区域 -->
     <AttendanceInformationModal @register="registerModal" @success="handleSuccess"></AttendanceInformationModal>
@@ -37,22 +46,21 @@
 </template>
 
 <script lang="ts" name="attendance_information-attendanceInformation" setup>
-  import {ref, reactive, computed, unref} from 'vue';
-  import {BasicTable, useTable, TableAction} from '/@/components/Table';
+  import {reactive} from 'vue';
+  import {BasicTable,  TableAction} from '/@/components/Table';
   import {useModal} from '/@/components/Modal';
   import { useListPage } from '/@/hooks/system/useListPage'
   import AttendanceInformationModal from './components/AttendanceInformationModal.vue'
   import {columns, searchFormSchema, superQuerySchema} from './AttendanceInformation.data';
   import {list, deleteOne, batchDelete, getImportUrl,getExportUrl} from './AttendanceInformation.api';
-  import { downloadFile } from '/@/utils/common/renderUtils';
-  import { useUserStore } from '/@/store/modules/user';
+  // import { useUserStore } from '/@/store/modules/user';
   const queryParam = reactive<any>({});
-  const checkedKeys = ref<Array<string | number>>([]);
-  const userStore = useUserStore();
+  // const checkedKeys = ref<Array<string | number>>([]);
+  // const userStore = useUserStore();
   //注册model
   const [registerModal, {openModal}] = useModal();
   //注册table数据
-  const { prefixCls,tableContext,onExportXls,onImportXls } = useListPage({
+  const {tableContext,onExportXls,onImportXls } = useListPage({
       tableProps:{
            title: '考勤信息',
            api: list,

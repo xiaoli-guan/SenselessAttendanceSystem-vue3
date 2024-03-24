@@ -1,9 +1,9 @@
 /*
  * @Author: Li Quanlin
  * @Date: 2024-03-24 01:17:08
- * @LastEditTime: 2024-03-24 01:17:08
+ * @LastEditTime: 2024-03-24 15:48:28
  * @LastEditors: Li Quanlin
- * @Description: peopleCounting的常量
+ * @Description: 人流统计的常量数据
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\peopleCounting\peopleCounting.data.ts
  */
 import { BasicColumn} from '/@/components/Table';

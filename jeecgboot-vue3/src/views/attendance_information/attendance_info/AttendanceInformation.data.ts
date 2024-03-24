@@ -1,7 +1,15 @@
+/*
+ * @Author: Li Quanlin
+ * @Date: 2024-03-01 20:38:52
+ * @LastEditTime: 2024-03-24 14:33:07
+ * @LastEditors: Li Quanlin
+ * @Description: 考勤信息的常量数据
+ * @FilePath: \jeecgboot-vue3\src\views\attendance_information\attendance_info\AttendanceInformation.data.ts
+ */
+
+
 import {BasicColumn} from '/@/components/Table';
 import {FormSchema} from '/@/components/Table';
-import { rules} from '/@/utils/helper/validator';
-import { render } from '/@/utils/common/renderUtils';
 //列表数据
 export const columns: BasicColumn[] = [
    {
@@ -52,7 +60,8 @@ export const formSchema: FormSchema[] = [
     label: '姓名',
     field: 'name',
     component: 'Input',
-    dynamicRules: ({model,schema}) => {
+    // dynamicRules: ({model,schema}) => {
+    dynamicRules: () => {
           return [
                  { required: true, message: '请输入姓名!'},
           ];
@@ -62,7 +71,8 @@ export const formSchema: FormSchema[] = [
     label: '员工ID',
     field: 'employeeId',
     component: 'Input',
-    dynamicRules: ({model,schema}) => {
+    // dynamicRules: ({model,schema}) => {
+    dynamicRules: () => {
           return [
                  { required: true, message: '请输入员工ID!'},
           ];
@@ -76,7 +86,8 @@ export const formSchema: FormSchema[] = [
        showTime: true,
        valueFormat: 'YYYY-MM-DD HH:mm:ss'
      },
-    dynamicRules: ({model,schema}) => {
+    // dynamicRules: ({model,schema}) => {
+    dynamicRules: () => {
           return [
                  { required: true, message: '请输入打卡时间!'},
           ];

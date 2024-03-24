@@ -1,9 +1,9 @@
 /*
  * @Author: Li Quanlin
  * @Date: 2024-03-22 22:38:43
- * @LastEditTime: 2024-03-23 17:56:55
+ * @LastEditTime: 2024-03-24 15:47:44
  * @LastEditors: Li Quanlin
- * @Description: 存放AttendanceRanking常量数据
+ * @Description: 存放考勤排名的常量数据
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\attendance_ranking\AttendanceRanking.data.ts
  */
 

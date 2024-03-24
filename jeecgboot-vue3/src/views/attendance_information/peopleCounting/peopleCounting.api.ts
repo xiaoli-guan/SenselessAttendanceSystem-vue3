@@ -1,9 +1,9 @@
 /*
  * @Author: Li Quanlin
  * @Date: 2024-03-23 21:42:45
- * @LastEditTime: 2024-03-23 23:27:23
+ * @LastEditTime: 2024-03-24 15:48:14
  * @LastEditors: Li Quanlin
- * @Description: peopleCounting的api
+ * @Description: 人流统计的api
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\peopleCounting\peopleCounting.api.ts
  */
 import {defHttp} from '/@/utils/http/axios';
