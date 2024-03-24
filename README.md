@@ -16,3 +16,7 @@ pnpm install
 pnpm run dev
 ```
 
+3、后台接口全路径地址在`./jeecgboot-vue3/.env.development`
+
+默认为`http://localhost:8080/jeecg-boot`,若后端也使用默认的路径，则不需要修改
+
