@@ -7,7 +7,7 @@
 
 ## 一、启动项目
 
-1、数据库导入attendance_information.sql  sys_permission.sql  personnel.sql  shebei.sql
+1、数据库导入attendance_information.sql  sys_permission.sql  personnel.sql  shebei.sql 四个sql文件
 
 2、打开jeecgboot-vue3项目，命令行输入
 
