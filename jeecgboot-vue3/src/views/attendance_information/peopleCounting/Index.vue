@@ -1,7 +1,7 @@
 <!--
  * @Author: Li Quanlin
  * @Date: 2024-03-03 23:01:30
- * @LastEditTime: 2024-03-24 16:07:48
+ * @LastEditTime: 2024-03-25 13:55:00
  * @LastEditors: Li Quanlin
  * @Description: 人流统计
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\peopleCounting\Index.vue
@@ -229,6 +229,7 @@
 
     // 更新人流统计图的数据
     function handleDatePickerChange(value){
+        console.log('value',value,value);
         trafficList(value.value).then((res) =>{
             chartDataCountingArray = res.result;
         })

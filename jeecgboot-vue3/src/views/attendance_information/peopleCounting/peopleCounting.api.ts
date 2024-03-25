@@ -1,7 +1,7 @@
 /*
  * @Author: Li Quanlin
  * @Date: 2024-03-23 21:42:45
- * @LastEditTime: 2024-03-24 15:48:14
+ * @LastEditTime: 2024-03-25 12:46:13
  * @LastEditors: Li Quanlin
  * @Description: 人流统计的api
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\peopleCounting\peopleCounting.api.ts
@@ -9,12 +9,12 @@
 import {defHttp} from '/@/utils/http/axios';
 
 enum Api {
-    trafficList= '/jeecg-boot/timesheet/personTraffic/queryTraffic',
-    arrivalMonthList='/jeecg-boot/timesheet/personRate/queryArrivalMonth',
-    arrivalDayList='/jeecg-boot/timesheet/personRate/queryArrivalDay',
-    lateDayList='/jeecg-boot/timesheet/personRate/queryLateDay',
-    overtimeYesterdayList='/jeecg-boot/timesheet/personRate/queryovertimeYst',
-    rateList='/jeecg-boot/timesheet/personRate/queryRate'
+    trafficList= '/attendance_details/attendanceDetails/queryTraffic',
+    arrivalMonthList='/attendance_details/attendanceDetails/queryArrivalMonth',
+    arrivalDayList='/attendance_details/attendanceDetails/queryArrivalDay',
+    lateDayList='/attendance_details/attendanceDetails/queryLateDay',
+    overtimeYesterdayList='/attendance_details/attendanceDetails/queryovertimeYst',
+    rateList='/attendance_details/attendanceDetails/queryRate'
 }
 
 /**

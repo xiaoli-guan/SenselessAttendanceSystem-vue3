@@ -1,7 +1,7 @@
 /*
  * @Author: Li Quanlin
  * @Date: 2024-03-23 21:23:31
- * @LastEditTime: 2024-03-24 14:39:26
+ * @LastEditTime: 2024-03-25 12:45:52
  * @LastEditors: Li Quanlin
  * @Description: 考勤排名Modal的api
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\attendance_ranking\components\AttendanceRankingModal.api.ts
@@ -11,15 +11,15 @@ import {defHttp} from '/@/utils/http/axios';
 
 enum Api {
 //   早到
-  earlyListById = '/jeecg-boot/timesheet/personnelSingleTimeSheet/queryEarlyById',
+  earlyListById = '/attendance_details/attendanceDetails/queryEarlyById',
 //   迟到
-  lateListById = '/jeecg-boot/timesheet/personnelTimeSheet/queryLateById',
+  lateListById = '/attendance_details/attendanceDetails/queryLateById',
 //   加班
-  overListById = '/jeecg-boot/timesheet/personnelTimeSheet/queryOverById',
+  overListById = '/attendance_details/attendanceDetails/queryEdptById',
 //   早退
-  edptListById = '/jeecg-boot/timesheet/personnelTimeSheet/queryEdptById',
+  edptListById = '/attendance_details/attendanceDetails/queryOverById',
 //   缺勤
-  absListById = ' /jeecg-boot/timesheet/personnelTimeSheet/queryAbsById',
+  absListById = '/attendance_details/attendanceDetails/queryAbsById',
 }
 
 /**

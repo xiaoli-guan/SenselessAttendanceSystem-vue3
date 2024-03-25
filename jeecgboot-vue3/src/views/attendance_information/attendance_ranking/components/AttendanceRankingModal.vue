@@ -1,7 +1,7 @@
 <!--
  * @Author: Li Quanlin
  * @Date: 2024-03-03 21:52:39
- * @LastEditTime: 2024-03-24 15:45:21
+ * @LastEditTime: 2024-03-25 15:10:40
  * @LastEditors: Li Quanlin
  * @Description: 考勤排名的modal
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\attendance_ranking\components\AttendanceRankingModal.vue
@@ -25,28 +25,29 @@
         title:{type:String}
     })
 
-    const [register] = useModalInner(getId);
+  let Id = '';//父组件传来的Id
+  
+  const [register] = useModalInner(getId);
 
-    const { tableContext } = useListPage({
-        designScope: 'AttendanceRankingArriveEarlyModal-table',
-        tableProps: {
-            dataSource: [],
-            columns: getColumns(),
-            api:getApi(),
-            beforeFetch:addId,//请求前对参数进行处理
-            size:'small',
-            bordered:false,
-            actionColumn: {
-                width: 120,
-            },
-            useSearchForm:false,
-            showActionColumn:false,
-        },
+  const { tableContext } = useListPage({
+      designScope: 'AttendanceRankingModal-table',
+      tableProps: {
+          dataSource: [],
+          columns: getColumns(),
+          api:getApi(),
+          beforeFetch:(data:any)=>{data.employee_id = Id;data.column = "employee_id";},//请求前对参数进行处理
+          size:'small',
+          bordered:false,
+          actionColumn: {
+              width: 120,
+          },
+          useSearchForm:false,
+          showActionColumn:false,
+      },
     });
     // BasicTable绑定注册
     const [registerTable] = tableContext;
 
-    let Id = '';//父组件传来的Id
 
     /**
      * @description: 根据不同的title返回不同的columns
@@ -83,14 +84,6 @@
       Id = id;
     }
 
-    /**
-     * @description: 请求前为参数添加上父组件传来的Id
-     * @param {*} data
-     * @return {*}
-     */    
-    function addId(data:any){
-      data.employee_id = Id;
-    }
 </script>
 <style scoped>
 </style>
