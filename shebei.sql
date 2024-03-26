@@ -11,7 +11,7 @@
  Target Server Version : 80036
  File Encoding         : 65001
 
- Date: 25/03/2024 17:36:53
+ Date: 27/03/2024 01:50:33
 */
 
 SET NAMES utf8mb4;
@@ -38,5 +38,6 @@ CREATE TABLE `shebei`  (
 -- ----------------------------
 -- Records of shebei
 -- ----------------------------
+INSERT INTO `shebei` VALUES ('1772675848347799554', '123.122.212.1', '1', 'test', '1', NULL, NULL, NULL, NULL, 'A01');
 
 SET FOREIGN_KEY_CHECKS = 1;
