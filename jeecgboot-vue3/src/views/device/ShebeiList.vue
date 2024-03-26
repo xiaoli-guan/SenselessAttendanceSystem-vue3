@@ -163,7 +163,8 @@
      /**
         * 下拉操作栏
         */
-  function getDropDownAction(record){
+  function getDropDownAction(record)
+  {
        return [
          {
            label: '详情',
@@ -183,6 +184,7 @@
       //调用后端接口
       console.log("调用成功");
    }
+
 
 </script>
 
