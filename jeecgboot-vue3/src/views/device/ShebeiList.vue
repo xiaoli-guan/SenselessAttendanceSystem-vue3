@@ -22,6 +22,7 @@
         </a-dropdown>
         <!-- 高级查询 -->
         <super-query :config="superQueryConfig" @search="handleSuperQuery" />
+        <a-button style="margin-left: 10px;background-color: aqua;"  type="primary" preIcon="ant-design:export-outlined" @click="DropPic"> 下发照片</a-button>
       </template>
        <!--操作栏-->
       <template #action="{ record }">
@@ -177,7 +178,11 @@
          }
        ]
    }
-
+   function DropPic()
+   {
+      //调用后端接口
+      console.log("调用成功");
+   }
 
 </script>
 
