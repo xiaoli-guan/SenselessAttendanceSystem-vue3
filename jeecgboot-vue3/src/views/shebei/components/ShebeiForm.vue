@@ -40,7 +40,7 @@
             });
 
             let formData = {};
-            const queryByIdUrl = '/shebei/shebei/queryById';
+            const queryByIdUrl = '/device/device/queryById';
             async function initFormData(){
                 let params = {id: props.formData.dataId};
                 const data = await defHttp.get({url: queryByIdUrl, params});
