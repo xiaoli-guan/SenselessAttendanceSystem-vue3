@@ -1,7 +1,7 @@
 <!--
  * @Author: Li Quanlin
  * @Date: 2024-03-03 23:01:30
- * @LastEditTime: 2024-03-27 08:29:39
+ * @LastEditTime: 2024-03-27 18:43:47
  * @LastEditors: Li Quanlin
  * @Description: 人流统计
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\peopleCounting\Index.vue
@@ -88,7 +88,7 @@
     import Gauge from '/@/components/chart/Gauge.vue';
     import Line from '/@/components/chart/SingleLine.vue';
     import { BasicTable } from '/@/components/Table';
-    import {arrivalDayList,trafficList,arrivalMonthList,lateDayList,overtimeYesterdayList,rateList} from './peopleCounting.api'
+    import {arrivalDayList,trafficList,arrivalMonthList,lateDayList,overtimeYesterdayList,arrivalMonthRate,arrivalDayRate,arrivalLateRate,overtimeYstRate} from './peopleCounting.api'
     import { useListPage } from '/@/hooks/system/useListPage';
     import {columnsArrivalMonth,columnsArrivalDay,columnsLateDay,columnsOvertimeYst} from './peopleCounting.data'
 
@@ -179,11 +179,20 @@
         }
     }
     // 发送请求并处理参数
-    rateList().then((res)=>{
-        chartData.attendanceMonth.value = res.result.arrival_rate_month;
-        chartData.attendanceDay.value = res.result.arrival_rate_day;
-        chartData.lateDay.value = res.result.late_arrival_rate_day;
-        chartData.overtimeYsd.value = res.result.overtime_rate_ystday;
+    arrivalMonthRate().then((res)=>{
+        chartData.attendanceMonth.value = res.arrival_rate_month;
+    })
+    // 发送请求并处理参数
+    arrivalDayRate().then((res)=>{
+        chartData.attendanceDay.value = res.arrival_rate_day;
+    })
+    // 发送请求并处理参数
+    arrivalLateRate().then((res)=>{
+        chartData.lateDay.value = res.late_arrival_rate_day;
+    })
+    // 发送请求并处理参数
+    overtimeYstRate().then((res)=>{
+        chartData.overtimeYsd.value = res.overtime_rate_ystday;
     })
     /* ----------------------------------- end ---------------------------------- */
 
