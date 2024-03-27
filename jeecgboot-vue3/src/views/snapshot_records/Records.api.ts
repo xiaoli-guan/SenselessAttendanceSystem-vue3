@@ -1,7 +1,7 @@
 /*
  * @Author: Li Quanlin
  * @Date: 2024-03-27 16:49:40
- * @LastEditTime: 2024-03-27 17:30:14
+ * @LastEditTime: 2024-03-27 20:12:27
  * @LastEditors: Li Quanlin
  * @Description: 打卡
  * @FilePath: \jeecgboot-vue3\src\views\snapshot_records\Records.api.ts
@@ -22,4 +22,4 @@ export const list = (params) =>
   defHttp.get({url: Api.list, params});
 
 export const clockIn = (params) =>
-    defHttp.post({url:Api.clockIn,params});
+    defHttp.get({url:Api.clockIn,params});

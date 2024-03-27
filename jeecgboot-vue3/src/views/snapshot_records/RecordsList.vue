@@ -1,7 +1,7 @@
 <!--
  * @Author: Li Quanlin
  * @Date: 2024-03-24 23:29:14
- * @LastEditTime: 2024-03-27 17:33:40
+ * @LastEditTime: 2024-03-27 20:42:45
  * @LastEditors: Li Quanlin
  * @Description: 模拟打卡
  * @FilePath: \jeecgboot-vue3\src\views\snapshot_records\RecordsList.vue
@@ -63,8 +63,8 @@
     */   
    function chockIn(record){
     // 过去人员id
-    let keyId = JSON.parse(JSON.stringify(record)).personId;
-      clockIn({keyId}).then((res)=>{
+    let personId = JSON.parse(JSON.stringify(record)).personId;
+      clockIn({personId}).then((res)=>{
         // 请求的响应
         if(res.success){
           ElMessage({
