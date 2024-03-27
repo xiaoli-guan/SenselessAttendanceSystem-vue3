@@ -69,11 +69,13 @@
               fieldMapToTime: [
               ],
             },
+            
            actionColumn: {
                width: 120,
                fixed:'right'
             },
             beforeFetch: (params) => {
+              delete params.column;delete params.order;
               return Object.assign(params, queryParam);
             },
       },

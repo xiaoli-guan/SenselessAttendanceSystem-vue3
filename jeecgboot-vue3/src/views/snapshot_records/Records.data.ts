@@ -1,50 +1,32 @@
 /*
  * @Author: Li Quanlin
  * @Date: 2024-03-24 23:29:14
- * @LastEditTime: 2024-03-24 23:58:13
+ * @LastEditTime: 2024-03-27 17:39:29
  * @LastEditors: Li Quanlin
- * @Description: 抓拍记录的常量数据
+ * @Description: 打卡
  * @FilePath: \jeecgboot-vue3\src\views\snapshot_records\Records.data.ts
  */
-
 import {BasicColumn} from '/@/components/Table';
-
 //列表数据
 export const columns: BasicColumn[] = [
    {
-    title: '人脸通行记录ID',
+    title: '人员ID',
     align:"center",
-    dataIndex: 'recordid'
+    dataIndex: 'personId'
    },
    {
-    title: '人脸通行记录类型',
+    title: '名字',
     align:"center",
-    dataIndex: 'type'
+    dataIndex: 'personName'
    },
    {
-    title: '过人时间',
+    title: '性别',
     align:"center",
-    sorter: true,
-    dataIndex: 'passingtime'
+    dataIndex: 'gender_dictText'
    },
    {
-    title: '抓拍通道名称',
+    title: '所属部门名称',
     align:"center",
-    dataIndex: 'channelname'
-   },
-   {
-    title: '通道号',
-    align:"center",
-    dataIndex: 'channelid'
-   },
-   {
-    title: '匹配相似度',
-    align:"center",
-    dataIndex: 'similarty'
-   },
-   {
-    title: '抓拍图片',
-    align:"center",
-    dataIndex: 'snapshotImageString'
+    dataIndex: 'departName_dictText'
    },
 ];
