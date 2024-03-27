@@ -1,7 +1,7 @@
 /*
  * @Author: Li Quanlin
  * @Date: 2024-03-23 21:42:45
- * @LastEditTime: 2024-03-25 12:46:13
+ * @LastEditTime: 2024-03-26 16:55:41
  * @LastEditors: Li Quanlin
  * @Description: 人流统计的api
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\peopleCounting\peopleCounting.api.ts
@@ -13,7 +13,7 @@ enum Api {
     arrivalMonthList='/attendance_details/attendanceDetails/queryArrivalMonth',
     arrivalDayList='/attendance_details/attendanceDetails/queryArrivalDay',
     lateDayList='/attendance_details/attendanceDetails/queryLateDay',
-    overtimeYesterdayList='/attendance_details/attendanceDetails/queryovertimeYst',
+    overtimeYesterdayList='/attendance_details/attendanceDetails/queryOvertimeYst',
     rateList='/attendance_details/attendanceDetails/queryRate'
 }
 

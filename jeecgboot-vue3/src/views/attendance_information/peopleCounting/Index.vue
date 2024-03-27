@@ -1,7 +1,7 @@
 <!--
  * @Author: Li Quanlin
  * @Date: 2024-03-03 23:01:30
- * @LastEditTime: 2024-03-25 13:55:00
+ * @LastEditTime: 2024-03-27 08:29:39
  * @LastEditors: Li Quanlin
  * @Description: 人流统计
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\peopleCounting\Index.vue
@@ -59,7 +59,7 @@
         </div>
         <div style="background-color: #FFFFFF;">
             <div class="datePiker">
-                <el-date-picker v-model="value" type="date" placeholder="Pick a day" :disabled-date="disabledDate" :shortcuts="shortcuts" @change="handleDatePickerChange(value)">
+                <el-date-picker v-model="value" type="date" placeholder="Pick a day" :disabled-date="disabledDate" :shortcuts="shortcuts" value-format="YYYY-MM-DD" @change="handleDatePickerChange(value)">
                 </el-date-picker>
                 </div>
             <Line :chartData="chartDataCountingArray" :height="'380px'"></Line>
@@ -130,6 +130,7 @@
             actionColumn: {
                 width: 120,
             },
+            beforeFetch:(params)=>{delete params.column;delete params.order;},
             useSearchForm:false,
             showActionColumn:false,
         },
@@ -143,6 +144,7 @@
             actionColumn: {
                 width: 120,
             },
+            beforeFetch:(params) =>{delete params.column;delete params.order;},
             useSearchForm:false,
             showActionColumn:false,
         },
@@ -192,7 +194,7 @@
     /*                             时间选择器与人流统计图                           */
     /* -------------------------------------------------------------------------- */
     const value = ref('')
-    value.value = (new Date()).toString();
+    value.value = new Date().toISOString();
     const shortcuts = [
         {
             text: 'Today',
@@ -215,12 +217,13 @@
             },
         },
     ]
-    // 处理时间变化
-    handleDatePickerChange(value);
+    // 获取当天人流量
+    handleDatePickerChange(new Date().toISOString().slice(0,10));
     let chartDataCountingArray = reactive([] as Array<Object>);
 
     for(let i = 0;i<24;i++){
-        chartDataCountingArray.push({name:i+'点',value:Math.floor(Math.random() * (200 - 0 + 1) + 0)});
+        // chartDataCountingArray.push({name:i+'点',value:Math.floor(Math.random() * (200 - 0 + 1) + 0)});
+        chartDataCountingArray.push({name:i+'点',value:0});
     }
     
     const disabledDate = (time: Date) => {
@@ -228,10 +231,11 @@
     }
 
     // 更新人流统计图的数据
-    function handleDatePickerChange(value){
-        console.log('value',value,value);
-        trafficList(value.value).then((res) =>{
-            chartDataCountingArray = res.result;
+    function handleDatePickerChange(time:String){
+        trafficList({date:time}).then((res) =>{
+            for(let i = 0;i<24;i++){
+                chartDataCountingArray[i].value = res.records[i].traffic;
+            }
         })
     }
 

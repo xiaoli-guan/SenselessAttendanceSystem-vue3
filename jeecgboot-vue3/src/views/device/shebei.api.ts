@@ -4,13 +4,13 @@ import { useMessage } from "/@/hooks/web/useMessage";
 const { createConfirm } = useMessage();
 
 enum Api {
-  list = '/shebei/shebei/list',
-  save='/shebei/shebei/add',
-  edit='/shebei/shebei/edit',
-  deleteOne = '/shebei/shebei/delete',
-  deleteBatch = '/shebei/shebei/deleteBatch',
-  importExcel = '/shebei/shebei/importExcel',
-  exportXls = '/shebei/shebei/exportXls',
+  list = '/device/device/list',
+  save='/device/device/add',
+  edit='/device/device/edit',
+  deleteOne = '/device/device/delete',
+  deleteBatch = '/device/device/deleteBatch',
+  importExcel = '/device/device/importExcel',
+  exportXls = '/device/device/exportXls',
 }
 /**
  * 导出api

@@ -1,7 +1,7 @@
 <!--
  * @Author: Li Quanlin
  * @Date: 2024-03-03 21:52:39
- * @LastEditTime: 2024-03-25 15:10:40
+ * @LastEditTime: 2024-03-26 14:36:44
  * @LastEditors: Li Quanlin
  * @Description: 考勤排名的modal
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\attendance_ranking\components\AttendanceRankingModal.vue
@@ -35,7 +35,7 @@
           dataSource: [],
           columns: getColumns(),
           api:getApi(),
-          beforeFetch:(data:any)=>{data.employee_id = Id;data.column = "employee_id";},//请求前对参数进行处理
+          beforeFetch:(data:any)=>{data.employee_id = Id;delete data.column;delete data.order;},//data.column = "employee_id";},//请求前对参数进行处理
           size:'small',
           bordered:false,
           actionColumn: {
