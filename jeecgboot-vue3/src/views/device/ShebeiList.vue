@@ -163,12 +163,8 @@
      /**
         * 下拉操作栏
         */
-      function DropPic()
-   {
-      //调用后端接口
-      console.log("调用成功");
-   }
-  function getDropDownAction(record){
+  function getDropDownAction(record)
+  {
        return [
          {
            label: '详情',
@@ -182,6 +178,11 @@
            }
          }
        ]
+   }
+   function DropPic()
+   {
+      //调用后端接口
+      console.log("调用成功");
    }
 
 
