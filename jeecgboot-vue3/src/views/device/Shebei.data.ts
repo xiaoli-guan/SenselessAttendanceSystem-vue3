@@ -12,7 +12,7 @@ export const columns: BasicColumn[] = [
    {
     title: '回调地址',
     align:"center",
-    dataIndex: 'address'
+    dataIndex: 'callbackaddr'
    },
    {
     title: '设备名称',
@@ -22,7 +22,7 @@ export const columns: BasicColumn[] = [
    {
     title: '在线状态',
     align:"center",
-    dataIndex: 'status_dictText'
+    dataIndex: 'online_dictText'
    },
 ];
 //查询数据
@@ -35,7 +35,7 @@ export const searchFormSchema: FormSchema[] = [
  	},
 	{
       label: "回调地址",
-      field: 'address',
+      field: 'callbackaddr',
       component: 'Input',
       //colProps: {span: 6},
  	},
@@ -47,7 +47,7 @@ export const searchFormSchema: FormSchema[] = [
  	},
 	{
       label: "在线状态",
-      field: 'status',
+      field: 'online',
       component: 'JDictSelectTag',
       componentProps:{
           dictCode:"status"
@@ -64,7 +64,7 @@ export const formSchema: FormSchema[] = [
   },
   {
     label: '回调地址',
-    field: 'address',
+    field: 'callbackaddr',
     component: 'Input',
   },
   {
@@ -74,7 +74,7 @@ export const formSchema: FormSchema[] = [
   },
   {
     label: '在线状态',
-    field: 'status',
+    field: 'online',
     component: 'JCheckbox',
     componentProps:{
         dictCode:"status"
@@ -92,9 +92,9 @@ export const formSchema: FormSchema[] = [
 // 高级查询数据
 export const superQuerySchema = {
   ip: {title: '设备IP',order: 0,view: 'text', type: 'string',},
-  address: {title: '回调地址',order: 1,view: 'text', type: 'string',},
+  callbackaddr: {title: '回调地址',order: 1,view: 'text', type: 'string',},
   name: {title: '设备名称',order: 2,view: 'text', type: 'string',},
-  status: {title: '在线状态',order: 3,view: 'checkbox', type: 'string',dictCode: 'status',},
+  online: {title: '在线状态',order: 3,view: 'checkbox', type: 'string',dictCode: 'status',},
 };
 
 /**
