@@ -1,7 +1,7 @@
 <!--
  * @Author: Li Quanlin
  * @Date: 2024-03-03 16:04:34
- * @LastEditTime: 2024-03-25 15:11:14
+ * @LastEditTime: 2024-03-28 10:01:09
  * @LastEditors: Li Quanlin
  * @Description: 考勤排名-二次封装BasicTable和Bar
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\attendance_ranking\components\AttendanceRankingTable.vue
@@ -79,7 +79,6 @@
     params.column = getColumns()[1].key     //设置排序字段
     props.api(params).then((res)=>{
         for(let i = 0;i<res.total;i++){
-            console.log('count',params.column);
             countChartData.push(
                 {
                     "name":res.records[i].name,
