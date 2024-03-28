@@ -1,7 +1,7 @@
 <!--
  * @Author: Li Quanlin
  * @Date: 2024-03-03 23:01:30
- * @LastEditTime: 2024-03-27 18:43:47
+ * @LastEditTime: 2024-03-28 00:45:07
  * @LastEditors: Li Quanlin
  * @Description: 人流统计
  * @FilePath: \jeecgboot-vue3\src\views\attendance_information\peopleCounting\Index.vue
@@ -160,7 +160,7 @@
     /* -------------------------------------------------------------------------- */
     /*               获取本月出勤率、今日出勤率、今日迟到率、昨日加班率数据            */
     /* -------------------------------------------------------------------------- */
-    const chartData = {
+    const chartData = ref({
         'attendanceMonth':{
             name:'本月出勤率',
             value:98
@@ -176,23 +176,23 @@
         'overtimeYsd':{
             name:'昨日加班率',
             value:34
-        }
-    }
+        }})
+
     // 发送请求并处理参数
     arrivalMonthRate().then((res)=>{
-        chartData.attendanceMonth.value = res.arrival_rate_month;
+        chartData.value.attendanceMonth.value = res.records[0].arrivalRateMonth;
     })
     // 发送请求并处理参数
     arrivalDayRate().then((res)=>{
-        chartData.attendanceDay.value = res.arrival_rate_day;
+        chartData.value.attendanceDay.value = res.records[0].arrivalRateDay;
     })
     // 发送请求并处理参数
     arrivalLateRate().then((res)=>{
-        chartData.lateDay.value = res.late_arrival_rate_day;
+        chartData.value.lateDay.value = res.records[0].late_arrivalRateDay;
     })
     // 发送请求并处理参数
     overtimeYstRate().then((res)=>{
-        chartData.overtimeYsd.value = res.overtime_rate_ystday;
+        chartData.value.overtimeYsd.value = res.records[0].overtimeRateYstday;
     })
     /* ----------------------------------- end ---------------------------------- */
 
