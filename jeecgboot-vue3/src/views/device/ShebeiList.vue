@@ -69,13 +69,11 @@
               fieldMapToTime: [
               ],
             },
-            
            actionColumn: {
                width: 120,
                fixed:'right'
             },
             beforeFetch: (params) => {
-              delete params.column;delete params.order;
               return Object.assign(params, queryParam);
             },
       },
@@ -165,8 +163,7 @@
      /**
         * 下拉操作栏
         */
-  function getDropDownAction(record)
-  {
+  function getDropDownAction(record){
        return [
          {
            label: '详情',
